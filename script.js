@@ -9,6 +9,16 @@ const botaoParar = document.getElementById('stopBtn');
 const listaDePausas = document.getElementById('pauseList');
 
 
+function atualizarListaDePausas() {
+  listaDePausas.innerHTML = '';
+  pausas.forEach(pausa => {
+    const item = document.createElement('li');
+    item.classList.add('list-group-item');
+    item.textContent = `Pausa em: ${pausa}`;
+    listaDePausas.appendChild(item);
+  });
+}
+
 function formatarTempo(ms) {
   let segundos = Math.floor(ms / 1000);
   let minutos = Math.floor(segundos / 60);
@@ -47,15 +57,7 @@ function parar() {
 }
 
 
-function atualizarListaDePausas() {
-  listaDePausas.innerHTML = '';
-  pausas.forEach(pausa => {
-    const item = document.createElement('li');
-    item.classList.add('list-group-item');
-    item.textContent = `Pausa em: ${pausa}`;
-    listaDePausas.appendChild(item);
-  });
-}
+
 
 botaoIniciarPausar.addEventListener('click', alternarIniciarPausar);
 botaoParar.addEventListener('click', parar);
