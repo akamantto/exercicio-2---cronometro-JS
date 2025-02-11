@@ -61,3 +61,10 @@ function parar() {
 
 botaoIniciarPausar.addEventListener('click', alternarIniciarPausar);
 botaoParar.addEventListener('click', parar);
+
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'Space') {
+    event.preventDefault();
+    alternarIniciarPausar();
+  }
+});
